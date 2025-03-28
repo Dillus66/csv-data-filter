@@ -11,8 +11,9 @@ df = pd.read_excel(new_data_file_path, sheet_name='June', header=2)
 df.rename(columns={'Location': 'Source'}, inplace=True)
 
 # Define the columns to extract and convert to numeric
-columns = ['Source', '4000g', '3500g', '2600g', 'Hours']
+columns = ['Source', '4500', '4000g', '3500g', '2600g', 'Hours']
 data_to_extract = df[columns]
+df['4500G'] = pd.to_numeric(df['4500G'], errors='coerce')
 df['4000g'] = pd.to_numeric(df['4000g'], errors='coerce')
 df['3500g'] = pd.to_numeric(df['3500g'], errors='coerce')
 df['2600g'] = pd.to_numeric(df['2600g'], errors='coerce')
